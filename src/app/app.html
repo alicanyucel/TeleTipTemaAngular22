@@ -1,6 +1,6 @@
 <div class="app-shell" [class.dark-theme]="darkTheme()" [attr.lang]="language()">
   <aside class="sidebar">
-    <a class="brand" href="#" aria-label="MediCare ana sayfa">
+    <a class="brand" href="#" [attr.aria-label]="t('brandLabel')">
       <span class="brand-mark"><i class="pi pi-heart-fill"></i></span>
       <span class="brand-copy">medicare<span>TELESAĞLIK</span></span>
     </a>
@@ -44,7 +44,7 @@
           <input type="search" [placeholder]="t('search')" [attr.aria-label]="t('search')">
           <kbd>⌘ K</kbd>
         </label>
-        <button class="icon-button notification-button" type="button" aria-label="Bildirimler">
+        <button class="icon-button notification-button" type="button" [attr.aria-label]="t('notifications')">
           <i class="pi pi-bell"></i><span></span>
         </button>
         <button class="language-button" type="button" (click)="toggleLanguage()" [attr.aria-label]="t('language')">
@@ -90,81 +90,81 @@
       <section class="content-grid">
         <article class="panel appointments-panel">
           <div class="panel-heading">
-            <div><h2>Bugünkü randevular</h2><p>Salı, 10 Kasım <span class="heading-dot"></span> 12 randevu</p></div>
-            <button class="text-button" type="button">Tümünü gör <i class="pi pi-arrow-right"></i></button>
+            <div><h2>{{ t('todaysAppointmentsHeading') }}</h2><p>{{ t('today') }} <span class="heading-dot"></span> 12 {{ t('appointments') }}</p></div>
+            <button class="text-button" type="button">{{ t('allSee') }} <i class="pi pi-arrow-right"></i></button>
           </div>
 
           <div class="appointment-list">
             <div class="appointment-row">
-              <div class="appointment-time"><strong>09:00</strong><span>30 dk</span></div>
+              <div class="appointment-time"><strong>09:00</strong><span>30 {{ t('minutes') }}</span></div>
               <div class="timeline"><span class="timeline-dot current"></span></div>
-              <div class="patient-info"><p-avatar label="SK" shape="circle" styleClass="patient-avatar avatar-blue"></p-avatar><div><strong>Selin Kaya</strong><span>Kontrol muayenesi <i class="pi pi-video"></i></span></div></div>
-              <p-tag value="Görüşmede" styleClass="status-tag status-live"></p-tag>
-              <button class="row-menu" type="button" aria-label="Randevu seçenekleri"><i class="pi pi-ellipsis-h"></i></button>
+              <div class="patient-info"><p-avatar label="SK" shape="circle" styleClass="patient-avatar avatar-blue"></p-avatar><div><strong>Selin Kaya</strong><span>{{ t('checkup') }} <i class="pi pi-video"></i></span></div></div>
+              <p-tag [value]="t('inCall')" styleClass="status-tag status-live"></p-tag>
+              <button class="row-menu" type="button" [attr.aria-label]="t('appointmentOptions')"><i class="pi pi-ellipsis-h"></i></button>
             </div>
             <div class="appointment-row">
-              <div class="appointment-time"><strong>09:45</strong><span>45 dk</span></div>
+              <div class="appointment-time"><strong>09:45</strong><span>45 {{ t('minutes') }}</span></div>
               <div class="timeline"><span class="timeline-dot"></span></div>
-              <div class="patient-info"><p-avatar label="MY" shape="circle" styleClass="patient-avatar avatar-peach"></p-avatar><div><strong>Mehmet Yılmaz</strong><span>İlk görüşme <i class="pi pi-video"></i></span></div></div>
-              <p-tag value="Onaylandı" styleClass="status-tag status-confirmed"></p-tag>
-              <button class="row-menu" type="button" aria-label="Randevu seçenekleri"><i class="pi pi-ellipsis-h"></i></button>
+              <div class="patient-info"><p-avatar label="MY" shape="circle" styleClass="patient-avatar avatar-peach"></p-avatar><div><strong>Mehmet Yılmaz</strong><span>{{ t('firstVisit') }} <i class="pi pi-video"></i></span></div></div>
+              <p-tag [value]="t('confirmed')" styleClass="status-tag status-confirmed"></p-tag>
+              <button class="row-menu" type="button" [attr.aria-label]="t('appointmentOptions')"><i class="pi pi-ellipsis-h"></i></button>
             </div>
             <div class="appointment-row">
-              <div class="appointment-time"><strong>10:30</strong><span>30 dk</span></div>
+              <div class="appointment-time"><strong>10:30</strong><span>30 {{ t('minutes') }}</span></div>
               <div class="timeline"><span class="timeline-dot"></span></div>
-              <div class="patient-info"><p-avatar label="ED" shape="circle" styleClass="patient-avatar avatar-lilac"></p-avatar><div><strong>Elif Demir</strong><span>Takip görüşmesi <i class="pi pi-video"></i></span></div></div>
-              <p-tag value="Onaylandı" styleClass="status-tag status-confirmed"></p-tag>
-              <button class="row-menu" type="button" aria-label="Randevu seçenekleri"><i class="pi pi-ellipsis-h"></i></button>
+              <div class="patient-info"><p-avatar label="ED" shape="circle" styleClass="patient-avatar avatar-lilac"></p-avatar><div><strong>Elif Demir</strong><span>{{ t('followup') }} <i class="pi pi-video"></i></span></div></div>
+              <p-tag [value]="t('confirmed')" styleClass="status-tag status-confirmed"></p-tag>
+              <button class="row-menu" type="button" [attr.aria-label]="t('appointmentOptions')"><i class="pi pi-ellipsis-h"></i></button>
             </div>
             <div class="appointment-row">
-              <div class="appointment-time"><strong>11:15</strong><span>30 dk</span></div>
+              <div class="appointment-time"><strong>11:15</strong><span>30 {{ t('minutes') }}</span></div>
               <div class="timeline"><span class="timeline-dot"></span></div>
-              <div class="patient-info"><p-avatar label="CA" shape="circle" styleClass="patient-avatar avatar-green"></p-avatar><div><strong>Can Arslan</strong><span>Kontrol muayenesi <i class="pi pi-video"></i></span></div></div>
-              <p-tag value="Bekliyor" styleClass="status-tag status-pending"></p-tag>
-              <button class="row-menu" type="button" aria-label="Randevu seçenekleri"><i class="pi pi-ellipsis-h"></i></button>
+              <div class="patient-info"><p-avatar label="CA" shape="circle" styleClass="patient-avatar avatar-green"></p-avatar><div><strong>Can Arslan</strong><span>{{ t('checkup') }} <i class="pi pi-video"></i></span></div></div>
+              <p-tag [value]="t('waiting')" styleClass="status-tag status-pending"></p-tag>
+              <button class="row-menu" type="button" [attr.aria-label]="t('appointmentOptions')"><i class="pi pi-ellipsis-h"></i></button>
             </div>
             <div class="appointment-row">
-              <div class="appointment-time"><strong>12:00</strong><span>30 dk</span></div>
+              <div class="appointment-time"><strong>12:00</strong><span>30 {{ t('minutes') }}</span></div>
               <div class="timeline"><span class="timeline-dot"></span></div>
-              <div class="patient-info"><p-avatar label="ZA" shape="circle" styleClass="patient-avatar avatar-blue"></p-avatar><div><strong>Zeynep Aydın</strong><span>Sonuç değerlendirme <i class="pi pi-video"></i></span></div></div>
-              <p-tag value="Onaylandı" styleClass="status-tag status-confirmed"></p-tag>
-              <button class="row-menu" type="button" aria-label="Randevu seçenekleri"><i class="pi pi-ellipsis-h"></i></button>
+              <div class="patient-info"><p-avatar label="ZA" shape="circle" styleClass="patient-avatar avatar-blue"></p-avatar><div><strong>Zeynep Aydın</strong><span>{{ t('resultsReview') }} <i class="pi pi-video"></i></span></div></div>
+              <p-tag [value]="t('confirmed')" styleClass="status-tag status-confirmed"></p-tag>
+              <button class="row-menu" type="button" [attr.aria-label]="t('appointmentOptions')"><i class="pi pi-ellipsis-h"></i></button>
             </div>
             <div class="appointment-row">
-              <div class="appointment-time"><strong>13:30</strong><span>45 dk</span></div>
+              <div class="appointment-time"><strong>13:30</strong><span>45 {{ t('minutes') }}</span></div>
               <div class="timeline"><span class="timeline-dot"></span></div>
-              <div class="patient-info"><p-avatar label="BK" shape="circle" styleClass="patient-avatar avatar-peach"></p-avatar><div><strong>Burak Koç</strong><span>İlk görüşme <i class="pi pi-video"></i></span></div></div>
-              <p-tag value="Onaylandı" styleClass="status-tag status-confirmed"></p-tag>
-              <button class="row-menu" type="button" aria-label="Randevu seçenekleri"><i class="pi pi-ellipsis-h"></i></button>
+              <div class="patient-info"><p-avatar label="BK" shape="circle" styleClass="patient-avatar avatar-peach"></p-avatar><div><strong>Burak Koç</strong><span>{{ t('firstVisit') }} <i class="pi pi-video"></i></span></div></div>
+              <p-tag [value]="t('confirmed')" styleClass="status-tag status-confirmed"></p-tag>
+              <button class="row-menu" type="button" [attr.aria-label]="t('appointmentOptions')"><i class="pi pi-ellipsis-h"></i></button>
             </div>
             <div class="appointment-row">
-              <div class="appointment-time"><strong>15:00</strong><span>30 dk</span></div>
+              <div class="appointment-time"><strong>15:00</strong><span>30 {{ t('minutes') }}</span></div>
               <div class="timeline"><span class="timeline-dot"></span></div>
-              <div class="patient-info"><p-avatar label="NT" shape="circle" styleClass="patient-avatar avatar-lilac"></p-avatar><div><strong>Nehir Tan</strong><span>Takip görüşmesi <i class="pi pi-video"></i></span></div></div>
-              <p-tag value="Onaylandı" styleClass="status-tag status-confirmed"></p-tag>
-              <button class="row-menu" type="button" aria-label="Randevu seçenekleri"><i class="pi pi-ellipsis-h"></i></button>
+              <div class="patient-info"><p-avatar label="NT" shape="circle" styleClass="patient-avatar avatar-lilac"></p-avatar><div><strong>Nehir Tan</strong><span>{{ t('followup') }} <i class="pi pi-video"></i></span></div></div>
+              <p-tag [value]="t('confirmed')" styleClass="status-tag status-confirmed"></p-tag>
+              <button class="row-menu" type="button" [attr.aria-label]="t('appointmentOptions')"><i class="pi pi-ellipsis-h"></i></button>
             </div>
           </div>
         </article>
 
         <aside class="right-column">
           <article class="next-card">
-            <div class="next-card-top"><span><i class="pi pi-clock"></i> SIRADAKİ RANDEVU</span><span class="live-pill"><i></i> 12 dk</span></div>
+            <div class="next-card-top"><span><i class="pi pi-clock"></i> {{ t('nextAppointment') }}</span><span class="live-pill"><i></i> {{ t('minutes12') }}</span></div>
             <div class="next-patient">
               <p-avatar label="SK" shape="circle" styleClass="next-avatar"></p-avatar>
-              <div><h3>Selin Kaya</h3><span>Kontrol muayenesi</span></div>
+              <div><h3>Selin Kaya</h3><span>{{ t('checkup') }}</span></div>
             </div>
-            <div class="next-details"><span><i class="pi pi-video"></i> Görüntülü görüşme</span><span><i class="pi pi-clock"></i> 09:00 – 09:30</span></div>
-            <p-button label="Görüşmeye katıl" icon="pi pi-video" styleClass="join-button"></p-button>
-            <button class="detail-button" type="button">Hasta detayları <i class="pi pi-arrow-up-right"></i></button>
+            <div class="next-details"><span><i class="pi pi-video"></i> {{ t('videoCall') }}</span><span><i class="pi pi-clock"></i> 09:00 – 09:30</span></div>
+            <p-button [label]="t('joinCall')" icon="pi pi-video" styleClass="join-button"></p-button>
+            <button class="detail-button" type="button">{{ t('patientDetails') }} <i class="pi pi-arrow-up-right"></i></button>
           </article>
 
           <article class="panel availability-card">
-            <div class="panel-heading compact-heading"><div><h2>Bugünkü müsaitlik</h2><p>Çalışma saatleri: 09:00 – 17:00</p></div><i class="pi pi-ellipsis-h muted-icon"></i></div>
-            <div class="availability-summary"><strong>7.5 <small>/ 8 saat</small></strong><span>%94 dolu</span></div>
+            <div class="panel-heading compact-heading"><div><h2>{{ t('todaysAvailability') }}</h2><p>{{ t('workingHours') }}</p></div><i class="pi pi-ellipsis-h muted-icon"></i></div>
+            <div class="availability-summary"><strong>7.5 <small>/ 8 {{ t('hours') }}</small></strong><span>%94 {{ t('full') }}</span></div>
             <div class="availability-bar"><span></span></div>
-            <div class="availability-legend"><span><i class="legend-booked"></i> Dolu</span><span><i class="legend-free"></i> Müsait</span></div>
-            <div class="available-slot"><span class="slot-icon"><i class="pi pi-sparkles"></i></span><span><strong>1 boş zaman aralığı</strong><small>14:30 – 15:00</small></span><button type="button" aria-label="Boş aralığı planla"><i class="pi pi-arrow-right"></i></button></div>
+            <div class="availability-legend"><span><i class="legend-booked"></i> {{ t('booked') }}</span><span><i class="legend-free"></i> {{ t('available') }}</span></div>
+            <div class="available-slot"><span class="slot-icon"><i class="pi pi-sparkles"></i></span><span><strong>{{ t('availableSlots') }}</strong><small>14:30 – 15:00</small></span><button type="button" [attr.aria-label]="t('planSlot')"><i class="pi pi-arrow-right"></i></button></div>
           </article>
         </aside>
       </section>
@@ -172,49 +172,84 @@
       <section class="lower-grid">
         <article class="panel activity-panel">
           <div class="panel-heading">
-            <div><h2>Hasta görüşmeleri</h2><p>Bu haftaki tamamlanan çevrimiçi görüşmeler</p></div>
-            <button class="period-button" type="button"><i class="pi pi-calendar"></i> Bu hafta <i class="pi pi-chevron-down"></i></button>
+            <div><h2>{{ t('patientMeetings') }}</h2><p>{{ t('weeklyMeetings') }}</p></div>
+            <button class="period-button" type="button"><i class="pi pi-calendar"></i> {{ t('thisWeek') }} <i class="pi pi-chevron-down"></i></button>
           </div>
-          <div class="chart-summary"><strong>86 <span>görüşme</span></strong><span class="chart-change"><i class="pi pi-arrow-up-right"></i> %12,8 <small>geçen haftaya göre</small></span></div>
-          <div class="chart" role="img" aria-label="Pazartesi 10, Salı 14, Çarşamba 11, Perşembe 18, Cuma 15, Cumartesi 8 görüşme">
+          <div class="chart-summary"><strong>86 <span>{{ t('meetings') }}</span></strong><span class="chart-change"><i class="pi pi-arrow-up-right"></i> %12,8 <small>{{ t('vsLastWeek') }}</small></span></div>
+          <div class="chart" role="img" [attr.aria-label]="t('weeklyChartLabel')">
             <div class="chart-grid"><span>20</span><span>15</span><span>10</span><span>5</span></div>
             <div class="chart-bars">
-              <div class="chart-column"><span style="--bar-height: 50%"></span><small>Pzt</small></div>
-              <div class="chart-column selected"><span style="--bar-height: 70%"></span><small>Sal</small></div>
-              <div class="chart-column"><span style="--bar-height: 55%"></span><small>Çar</small></div>
-              <div class="chart-column"><span style="--bar-height: 90%"></span><small>Per</small></div>
-              <div class="chart-column"><span style="--bar-height: 75%"></span><small>Cum</small></div>
-              <div class="chart-column"><span style="--bar-height: 40%"></span><small>Cmt</small></div>
-              <div class="chart-column future"><span style="--bar-height: 16%"></span><small>Paz</small></div>
+              <div class="chart-column"><span style="--bar-height: 50%"></span><small>{{ t('mon') }}</small></div>
+              <div class="chart-column selected"><span style="--bar-height: 70%"></span><small>{{ t('tue') }}</small></div>
+              <div class="chart-column"><span style="--bar-height: 55%"></span><small>{{ t('wed') }}</small></div>
+              <div class="chart-column"><span style="--bar-height: 90%"></span><small>{{ t('thu') }}</small></div>
+              <div class="chart-column"><span style="--bar-height: 75%"></span><small>{{ t('fri') }}</small></div>
+              <div class="chart-column"><span style="--bar-height: 40%"></span><small>{{ t('sat') }}</small></div>
+              <div class="chart-column future"><span style="--bar-height: 16%"></span><small>{{ t('sun') }}</small></div>
             </div>
           </div>
         </article>
 
         <article class="panel patients-panel">
           <div class="panel-heading">
-            <div><h2>Son hastalar</h2><p>Yakın zamanda kaydolan hastalar</p></div>
-            <button class="text-button" type="button">Hasta listesi <i class="pi pi-arrow-right"></i></button>
+            <div><h2>{{ t('latestPatients') }}</h2><p>{{ t('recentRegistrations') }}</p></div>
+            <button class="text-button" type="button">{{ t('patientList') }} <i class="pi pi-arrow-right"></i></button>
           </div>
           <div class="recent-patient">
             <p-avatar label="EA" shape="circle" styleClass="patient-avatar avatar-green"></p-avatar>
-            <div><strong>Emre Aksoy</strong><span>Yeni hasta <i class="pi pi-circle-fill"></i> Bugün, 08:42</span></div>
-            <button type="button" aria-label="Emre Aksoy hasta detayları"><i class="pi pi-arrow-up-right"></i></button>
+            <div><strong>Emre Aksoy</strong><span>{{ t('newPatient') }} <i class="pi pi-circle-fill"></i> {{ t('todayAt') }}</span></div>
+            <button type="button" [attr.aria-label]="'Emre Aksoy - ' + t('patientDetails')"><i class="pi pi-arrow-up-right"></i></button>
           </div>
           <div class="recent-patient">
             <p-avatar label="MK" shape="circle" styleClass="patient-avatar avatar-lilac"></p-avatar>
-            <div><strong>Merve Kılıç</strong><span>Takip hastası <i class="pi pi-circle-fill"></i> Dün, 16:20</span></div>
-            <button type="button" aria-label="Merve Kılıç hasta detayları"><i class="pi pi-arrow-up-right"></i></button>
+            <div><strong>Merve Kılıç</strong><span>{{ t('returningPatient') }} <i class="pi pi-circle-fill"></i> {{ t('yesterdayAt16') }}</span></div>
+            <button type="button" [attr.aria-label]="'Merve Kılıç - ' + t('patientDetails')"><i class="pi pi-arrow-up-right"></i></button>
           </div>
           <div class="recent-patient">
             <p-avatar label="OY" shape="circle" styleClass="patient-avatar avatar-peach"></p-avatar>
-            <div><strong>Ozan Yıldırım</strong><span>Yeni hasta <i class="pi pi-circle-fill"></i> Dün, 14:05</span></div>
-            <button type="button" aria-label="Ozan Yıldırım hasta detayları"><i class="pi pi-arrow-up-right"></i></button>
+            <div><strong>Ozan Yıldırım</strong><span>{{ t('newPatient') }} <i class="pi pi-circle-fill"></i> {{ t('yesterdayAt14') }}</span></div>
+            <button type="button" [attr.aria-label]="'Ozan Yıldırım - ' + t('patientDetails')"><i class="pi pi-arrow-up-right"></i></button>
           </div>
         </article>
       </section>
 
-      <footer class="dashboard-footer"><span><i class="pi pi-shield"></i> Sağlık verileriniz güvende ve şifreli.</span><span>© 2026 Ali Can Yücel. Her hakkı saklıdır.</span></footer>
+      <footer class="dashboard-footer"><span><i class="pi pi-shield"></i> {{ t('secureData') }}</span><span>{{ t('copyright') }}</span></footer>
     </div>
   </main>
 </div>
+
+@if (authMode(); as mode) {
+  <div class="auth-overlay">
+    <section class="auth-dialog" role="dialog" aria-modal="true" [attr.aria-label]="mode === 'login' ? t('authTitleLogin') : t('authTitleRegister')">
+      <button class="auth-close" type="button" (click)="closeAuth()" [attr.aria-label]="t('close')"><i class="pi pi-times"></i></button>
+      <a class="brand auth-brand" href="#" (click)="$event.preventDefault()">
+        <span class="brand-mark"><i class="pi pi-heart-fill"></i></span>
+        <span class="brand-copy">medicare<span>TELESAĞLIK</span></span>
+      </a>
+      <div class="auth-heading">
+        <h2>{{ mode === 'login' ? t('authTitleLogin') : t('authTitleRegister') }}</h2>
+        <p>{{ mode === 'login' ? t('authIntro') : t('authIntroRegister') }}</p>
+      </div>
+      <form class="auth-form" (submit)="submitAuth($event)">
+        @if (mode === 'register') {
+          <label>{{ t('fullName') }}<input type="text" name="fullName" autocomplete="name" required></label>
+        }
+        <label>{{ t('email') }}<input type="email" name="email" autocomplete="email" required></label>
+        <label>{{ t('password') }}<input type="password" name="password" [attr.autocomplete]="mode === 'login' ? 'current-password' : 'new-password'" minlength="8" [placeholder]="t('passwordHint')" required></label>
+        @if (mode === 'login') {
+          <div class="auth-form-options"><label class="remember-option"><input type="checkbox" name="remember"> {{ t('rememberMe') }}</label><button type="button" class="forgot-button">{{ t('forgotPassword') }}</button></div>
+        }
+        <p class="auth-demo-note"><i class="pi pi-info-circle"></i> {{ t('demoNotice') }}</p>
+        <button class="auth-submit" type="submit">{{ mode === 'login' ? t('submitLogin') : t('submitRegister') }} <i class="pi pi-arrow-right"></i></button>
+        @if (authNotice()) {
+          <p class="auth-notice" role="status">{{ authNotice() }}</p>
+        }
+      </form>
+      <div class="auth-switch">
+        {{ mode === 'login' ? t('noAccount') : t('hasAccount') }}
+        <button type="button" (click)="openAuth(mode === 'login' ? 'register' : 'login')">{{ mode === 'login' ? t('createAccount') : t('backToLogin') }}</button>
+      </div>
+    </section>
+  </div>
+}
 <router-outlet />

@@ -3,7 +3,6 @@ import { RouterOutlet } from '@angular/router';
 import { AvatarModule } from 'primeng/avatar';
 import { ButtonModule } from 'primeng/button';
 import { TagModule } from 'primeng/tag';
-import { FormsModule } from '@angular/forms';
 
 const translations = {
   tr: {
@@ -39,6 +38,9 @@ const translations = {
     createAccount: 'Kayıt ol', backToLogin: 'Giriş yap', close: 'Kapat',
     demoNotice: 'Bu arayüz demosudur. Kimlik doğrulama henüz sunucuya bağlı değildir.',
     loginSuccess: 'Demo giriş formu gönderildi.', registerSuccess: 'Demo kayıt formu gönderildi.',
+    minutes: 'dk', hours: 'saat', brandLabel: 'MediCare ana sayfa', appointmentOptions: 'Randevu seçenekleri',
+    mon: 'Pzt', tue: 'Sal', wed: 'Çar', thu: 'Per', fri: 'Cum', sat: 'Cmt', sun: 'Paz',
+    weeklyChartLabel: 'Haftanın günlerine göre hasta görüşmeleri',
   },
   en: {
     workspace: 'WORKSPACE', overview: 'Overview', appointments: 'Appointments', patients: 'Patients',
@@ -73,11 +75,14 @@ const translations = {
     createAccount: 'Sign up', backToLogin: 'Log in', close: 'Close',
     demoNotice: 'This is a UI demo. Authentication is not connected to a server yet.',
     loginSuccess: 'Demo login form submitted.', registerSuccess: 'Demo registration form submitted.',
+    minutes: 'min', hours: 'hours', brandLabel: 'MediCare home', appointmentOptions: 'Appointment options',
+    mon: 'Mon', tue: 'Tue', wed: 'Wed', thu: 'Thu', fri: 'Fri', sat: 'Sat', sun: 'Sun',
+    weeklyChartLabel: 'Patient consultations by day of the week',
   },
 } as const;
 
 @Component({
-  imports: [RouterOutlet, AvatarModule, ButtonModule, TagModule, FormsModule],
+  imports: [RouterOutlet, AvatarModule, ButtonModule, TagModule],
   selector: 'app-root',
   templateUrl: './app.html',
 })
