@@ -10,6 +10,7 @@ Angular ile geliştirilmiş, çevrimiçi sağlık hizmetleri için tasarlanmış
 - Giriş ve kayıt ekranı taslağı.
 - Mobil, tablet ve masaüstü ekranlara uyumlu tasarım.
 - Angular SSR (sunucu tarafında oluşturma) yapılandırması.
+- Capacitor ile Android uygulaması olarak paketleme desteği.
 
 > **Not:** Giriş ve kayıt formları şu an arayüz demosudur; kimlik doğrulama servisine bağlı değildir. Paneldeki randevu ve hasta bilgileri örnek veridir. Gerçek hasta verileri veya klinik kullanım için bir API, kimlik doğrulama ve uygun güvenlik/mahremiyet önlemleri eklenmelidir.
 
@@ -48,6 +49,9 @@ Terminalde belirtilen yerel adresi tarayıcıda açın (varsayılan olarak `http
 | --- | --- |
 | `npm start` | Geliştirme sunucusunu başlatır. |
 | `npm run build` | Üretim derlemesini oluşturur. |
+| `npm run build:mobile` | Android için SSR olmadan web uygulamasını derler. |
+| `npm run android:sync` | Mobil derlemeyi alır ve Android projesine aktarır. |
+| `npm run android:open` | Android projesini Android Studio'da açar. |
 | `npm run watch` | Geliştirme yapılandırmasıyla değişiklikleri izleyerek derler. |
 | `npm test` | Proje testlerini çalıştırır. |
 | `npm run serve:ssr:teletip` | Daha önce oluşturulmuş SSR çıktısını sunar. |
@@ -75,6 +79,25 @@ docker run --rm -e PORT=8080 -p 8080:8080 teletip
 ```
 
 Docker imajı çok aşamalı derleme kullanır; son imajda yalnızca üretim bağımlılıkları ve Angular SSR çıktısı bulunur. Uygulama konteyner içinde root olmayan `node` kullanıcısıyla çalışır.
+
+## Android APK oluşturma
+
+Android Studio, Android SDK ve JDK kurulu olmalıdır. Android Capacitor projesi depoda hazırdır; web derlemesini alıp Android'e aktarın:
+
+```bash
+npm install
+npm run android:sync
+npm run android:open
+```
+
+Android klasörü olmayan yeni bir kopyada önce platformu bir kez ekleyin:
+
+```bash
+npx cap add android
+npm run android:sync
+```
+
+Android Studio'da **Build > Build Bundle(s) / APK(s) > Build APK(s)** seçerek APK oluşturun. Komut satırından debug APK almak için `android/gradlew.bat -p android assembleDebug` çalıştırın; çıktı `android/app/build/outputs/apk/debug/app-debug.apk` konumuna yazılır. İmzalı yayın APK'sı için Android Studio'daki **Build > Generate Signed Bundle / APK** seçeneğini kullanın. Uygulama kimliği `capacitor.config.ts` dosyasındaki `appId` değeridir.
 
 ## Proje yapısı
 
