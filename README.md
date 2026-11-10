@@ -59,9 +59,28 @@ npm run build
 npm run serve:ssr:teletip
 ```
 
+## Docker ile çalıştırma
+
+Docker kurulu proje dizininde imajı oluşturun ve uygulamayı başlatın:
+
+```bash
+docker build -t teletip .
+docker run --rm -p 4000:4000 teletip
+```
+
+Uygulamayı `http://localhost:4000` adresinde açın. Sunucu portunu değiştirmek için `PORT` ortam değişkenini kullanabilirsiniz:
+
+```bash
+docker run --rm -e PORT=8080 -p 8080:8080 teletip
+```
+
+Docker imajı çok aşamalı derleme kullanır; son imajda yalnızca üretim bağımlılıkları ve Angular SSR çıktısı bulunur. Uygulama konteyner içinde root olmayan `node` kullanıcısıyla çalışır.
+
 ## Proje yapısı
 
 ```text
+Dockerfile
+.dockerignore
 src/
 ├── app/
 │   ├── app.ts          # Ana Angular bileşeni ve dil/tema durumu
