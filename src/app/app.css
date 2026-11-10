@@ -190,7 +190,7 @@
 .notification-button > span { position: absolute; top: 6px; right: 7px; width: 6px; height: 6px; border: 1px solid white; border-radius: 50%; background: #e98d68; }
 .mobile-brand { display: none; }
 
-.page-content { max-width: 1440px; margin: 0 auto; padding: 35px 43px 20px; }
+.page-content { width: 100%; max-width: none; margin: 0; padding: 35px clamp(28px, 3.2vw, 68px) 24px; }
 .welcome-row { display: flex; align-items: end; justify-content: space-between; margin-bottom: 25px; }
 .date-label { margin-bottom: 10px; color: #8b9a93; font-size: 9px; font-weight: 700; letter-spacing: 1.1px; }
 .date-label i { margin-right: 5px; color: #d7a45c; font-size: 11px; }
@@ -282,10 +282,75 @@ h1 span { font-size: 20px; }
 .available-slot small { color: #96a19b; font-size: 8px; }
 .available-slot button { display: grid; width: 23px; height: 23px; margin-left: auto; place-items: center; border: 1px solid #e8efeb; border-radius: 6px; background: white; color: #71847b; font-size: 9px; cursor: pointer; }
 
+.lower-grid { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(300px, .9fr); gap: 16px; margin-top: 16px; }
+.activity-panel, .patients-panel { min-height: 268px; padding-bottom: 17px; }
+.period-button { display: flex; align-items: center; gap: 7px; padding: 7px 9px; border: 1px solid #e8eeeb; border-radius: 7px; background: white; color: #67766f; font: inherit; font-size: 9px; cursor: pointer; }
+.period-button i { color: #87958e; font-size: 9px; }
+.chart-summary { display: flex; align-items: baseline; gap: 12px; margin: 2px 0 12px; }
+.chart-summary > strong { color: #293c34; font-size: 23px; font-weight: 650; letter-spacing: -.5px; }
+.chart-summary > strong span { color: #89968f; font-size: 10px; font-weight: 500; letter-spacing: 0; }
+.chart-change { color: #2f946f; font-size: 9px; font-weight: 650; }
+.chart-change small { margin-left: 3px; color: #9aa59f; font-size: 8px; font-weight: 450; }
+.chart { position: relative; display: flex; height: 142px; padding: 8px 0 0 28px; }
+.chart-grid { position: absolute; inset: 4px 0 25px; display: flex; flex-direction: column; justify-content: space-between; }
+.chart-grid span { position: relative; color: #a0aaa5; font-size: 8px; }
+.chart-grid span::after { position: absolute; top: 50%; left: 23px; right: 0; border-top: 1px dashed #edf1ef; content: ""; }
+.chart-bars { z-index: 1; display: grid; width: 100%; grid-template-columns: repeat(7, 1fr); align-items: end; gap: 15px; padding-left: 5px; }
+.chart-column { display: flex; height: 100%; flex-direction: column; align-items: center; justify-content: end; gap: 7px; }
+.chart-column > span { width: min(34px, 65%); height: var(--bar-height); min-height: 8px; border-radius: 5px 5px 2px 2px; background: #d8eee7; transition: background .2s ease; }
+.chart-column:hover > span, .chart-column.selected > span { background: #258d73; }
+.chart-column.future > span { background: #eff3f0; }
+.chart-column small { color: #89968f; font-size: 8px; }
+.recent-patient { display: flex; min-height: 60px; align-items: center; gap: 10px; border-top: 1px solid #f0f3f1; }
+.recent-patient > div { display: grid; gap: 5px; }
+.recent-patient strong { color: #3c4b45; font-size: 10px; font-weight: 600; }
+.recent-patient > div > span { color: #96a19b; font-size: 8px; }
+.recent-patient > div > span i { margin: 0 4px; color: #62a78b; font-size: 5px; vertical-align: middle; }
+.recent-patient button { display: grid; width: 25px; height: 25px; margin-left: auto; place-items: center; border: 1px solid #e9efec; border-radius: 7px; background: #fff; color: #819088; font-size: 9px; cursor: pointer; }
+.recent-patient button:hover { border-color: #b6d9cd; color: #16856f; }
+
 .dashboard-footer { display: flex; justify-content: space-between; margin-top: 23px; color: #9ba7a1; font-size: 8px; }
 .dashboard-footer > span:first-child i { margin-right: 4px; color: #58a98d; }
 .dashboard-footer > span:last-child i { margin-left: 3px; font-size: 8px; }
 .footer-divider { display: inline-block; height: 9px; margin: 0 7px -2px; border-left: 1px solid #dfe6e2; }
+
+.workspace-label { font-size: 11px; }
+.nav-link { font-size: 14px; }
+.support-card strong { font-size: 13px; }
+.support-card > span:not(.support-icon), .support-card a { font-size: 12px; }
+.profile-copy strong { font-size: 13px; }
+.profile-copy small { font-size: 12px; }
+.breadcrumb { font-size: 13px; }
+.search-box input { font-size: 12px; }
+.search-box kbd { font-size: 11px; }
+.date-label { font-size: 11px; }
+.welcome-row p { font-size: 14px; }
+.stat-top { font-size: 13px; }
+.trend { font-size: 11px; }
+.neutral { font-size: 10px; }
+.stat-foot { font-size: 11px; }
+.tiny-avatars i { font-size: 8px; }
+.panel-heading h2 { font-size: 16px; }
+.panel-heading p { font-size: 12px; }
+.text-button, .period-button { font-size: 12px; }
+.appointment-time strong { font-size: 13px; }
+.appointment-time span { font-size: 11px; }
+.patient-info strong, .recent-patient strong { font-size: 13px; }
+.patient-info > div > span, .recent-patient > div > span { font-size: 11px; }
+.status-tag { font-size: 10px; }
+.next-card-top { font-size: 10px; }
+.live-pill { font-size: 10px; }
+.next-patient h3 { font-size: 16px; }
+.next-patient > div > span, .next-details span, .detail-button { font-size: 12px; }
+.availability-summary small, .availability-summary > span { font-size: 11px; }
+.availability-legend { font-size: 10px; }
+.available-slot strong { font-size: 11px; }
+.available-slot small { font-size: 10px; }
+.period-button { padding: 8px 10px; }
+.chart-summary > strong span { font-size: 12px; }
+.chart-change { font-size: 11px; }
+.chart-change small, .chart-column small { font-size: 10px; }
+.dashboard-footer { color: #64736c; font-size: 12px; }
 
 @media (max-width: 1100px) {
   .sidebar { width: 215px; }
@@ -308,6 +373,7 @@ h1 span { font-size: 20px; }
   .dashboard { margin-left: 66px; }
   .content-grid { grid-template-columns: 1fr; }
   .right-column { grid-template-columns: 1fr 1fr; }
+  .lower-grid { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 620px) {
@@ -329,7 +395,10 @@ h1 span { font-size: 20px; }
   .appointment-row .row-menu { display: none; }
   .patient-info { gap: 6px; }
   .patient-info .patient-avatar { width: 28px !important; height: 28px !important; }
-  .status-tag { padding: 4px 5px; font-size: 7px; }
+  .status-tag { padding: 4px 5px; font-size: 9px; }
   .right-column { grid-template-columns: 1fr; }
+  .lower-grid { grid-template-columns: 1fr; }
+  .activity-panel, .patients-panel { min-height: auto; }
+  .chart-bars { gap: 8px; }
   .dashboard-footer { flex-wrap: wrap; gap: 10px; line-height: 1.5; }
 }

@@ -1,35 +1,35 @@
-<div class="app-shell">
+<div class="app-shell" [class.dark-theme]="darkTheme()" [attr.lang]="language()">
   <aside class="sidebar">
     <a class="brand" href="#" aria-label="MediCare ana sayfa">
       <span class="brand-mark"><i class="pi pi-heart-fill"></i></span>
       <span class="brand-copy">medicare<span>TELESAĞLIK</span></span>
     </a>
 
-    <div class="workspace-label">ÇALIŞMA ALANI</div>
-    <nav class="main-nav" aria-label="Ana menü">
-      <a class="nav-link active" href="#"><i class="pi pi-th-large"></i><span>Genel Bakış</span></a>
-      <a class="nav-link" href="#"><i class="pi pi-calendar"></i><span>Randevular</span><span class="nav-count">4</span></a>
-      <a class="nav-link" href="#"><i class="pi pi-users"></i><span>Hastalar</span></a>
-      <a class="nav-link" href="#"><i class="pi pi-comments"></i><span>Mesajlar</span><span class="unread-dot"></span></a>
-      <a class="nav-link" href="#"><i class="pi pi-file"></i><span>Raporlar</span></a>
+    <div class="workspace-label">{{ t('workspace') }}</div>
+    <nav class="main-nav" [attr.aria-label]="t('workspace')">
+      <a class="nav-link active" href="#"><i class="pi pi-th-large"></i><span>{{ t('overview') }}</span></a>
+      <a class="nav-link" href="#"><i class="pi pi-calendar"></i><span>{{ t('appointments') }}</span><span class="nav-count">4</span></a>
+      <a class="nav-link" href="#"><i class="pi pi-users"></i><span>{{ t('patients') }}</span></a>
+      <a class="nav-link" href="#"><i class="pi pi-comments"></i><span>{{ t('messages') }}</span><span class="unread-dot"></span></a>
+      <a class="nav-link" href="#"><i class="pi pi-file"></i><span>{{ t('reports') }}</span></a>
     </nav>
 
-    <div class="workspace-label tools-label">YÖNETİM</div>
-    <nav class="main-nav" aria-label="Yönetim menüsü">
-      <a class="nav-link" href="#"><i class="pi pi-wallet"></i><span>Ödemeler</span></a>
-      <a class="nav-link" href="#"><i class="pi pi-cog"></i><span>Ayarlar</span></a>
+    <div class="workspace-label tools-label">{{ t('management') }}</div>
+    <nav class="main-nav" [attr.aria-label]="t('management')">
+      <a class="nav-link" href="#"><i class="pi pi-wallet"></i><span>{{ t('payments') }}</span></a>
+      <a class="nav-link" href="#"><i class="pi pi-cog"></i><span>{{ t('settings') }}</span></a>
     </nav>
 
     <div class="sidebar-spacer"></div>
     <div class="support-card">
       <span class="support-icon"><i class="pi pi-headphones"></i></span>
-      <strong>Yardıma mı ihtiyacınız var?</strong>
-      <span>Destek ekibimiz size yardımcı olmaya hazır.</span>
-      <a href="#">Destek merkezine git <i class="pi pi-arrow-up-right"></i></a>
+      <strong>{{ t('supportTitle') }}</strong>
+      <span>{{ t('supportDescription') }}</span>
+      <a href="#">{{ t('supportLink') }} <i class="pi pi-arrow-up-right"></i></a>
     </div>
     <button class="profile-button" type="button">
       <p-avatar label="AD" shape="circle" styleClass="doctor-avatar"></p-avatar>
-      <span class="profile-copy"><strong>Dr. Ayşe Demir</strong><small>Kardiyoloji Uzmanı</small></span>
+      <span class="profile-copy"><strong>Dr. Ayşe Demir</strong><small>{{ t('specialty') }}</small></span>
       <i class="pi pi-ellipsis-h profile-menu"></i>
     </button>
   </aside>
@@ -37,16 +37,24 @@
   <main class="dashboard">
     <header class="topbar">
       <div class="mobile-brand"><span class="brand-mark"><i class="pi pi-heart-fill"></i></span> medicare</div>
-      <div class="breadcrumb">Sayfalar <i class="pi pi-angle-right"></i> <strong>Genel Bakış</strong></div>
+      <div class="breadcrumb">{{ t('pages') }} <i class="pi pi-angle-right"></i> <strong>{{ t('overview') }}</strong></div>
       <div class="topbar-actions">
         <label class="search-box">
           <i class="pi pi-search"></i>
-          <input type="search" placeholder="Hasta veya işlem ara..." aria-label="Hasta veya işlem ara">
+          <input type="search" [placeholder]="t('search')" [attr.aria-label]="t('search')">
           <kbd>⌘ K</kbd>
         </label>
         <button class="icon-button notification-button" type="button" aria-label="Bildirimler">
           <i class="pi pi-bell"></i><span></span>
         </button>
+        <button class="language-button" type="button" (click)="toggleLanguage()" [attr.aria-label]="t('language')">
+          <i class="pi pi-globe"></i><span>{{ language().toUpperCase() }}</span>
+        </button>
+        <button class="icon-button theme-button" type="button" (click)="toggleTheme()" [attr.aria-label]="darkTheme() ? t('lightTheme') : t('darkTheme')" [title]="darkTheme() ? t('lightTheme') : t('darkTheme')">
+          <i [class]="darkTheme() ? 'pi pi-sun' : 'pi pi-moon'"></i>
+        </button>
+        <button class="auth-link" type="button" (click)="openAuth('login')">{{ t('login') }}</button>
+        <button class="auth-register" type="button" (click)="openAuth('register')">{{ t('register') }}</button>
         <p-avatar label="AD" shape="circle" styleClass="top-avatar"></p-avatar>
       </div>
     </header>
@@ -54,28 +62,28 @@
     <div class="page-content">
       <section class="welcome-row">
         <div>
-          <div class="date-label"><i class="pi pi-sun"></i> SALI, 10 KASIM 2026</div>
-          <h1>Merhaba, Dr. Ayşe <span>👋</span></h1>
-          <p>Bugün kliniğinizde neler olup bittiğine bir göz atın.</p>
+          <div class="date-label"><i class="pi pi-sun"></i> {{ t('today') }}</div>
+          <h1>{{ t('greeting') }} <span>👋</span></h1>
+          <p>{{ t('welcome') }}</p>
         </div>
-        <p-button label="Yeni randevu" icon="pi pi-plus" styleClass="new-appointment"></p-button>
+        <p-button [label]="t('newAppointment')" icon="pi pi-plus" styleClass="new-appointment"></p-button>
       </section>
 
-      <section class="stats-grid" aria-label="Günlük özet">
+      <section class="stats-grid" [attr.aria-label]="t('dailySummary')">
         <article class="stat-card">
-          <div class="stat-top"><span>Bugünkü randevular</span><span class="stat-icon mint"><i class="pi pi-calendar"></i></span></div>
+          <div class="stat-top"><span>{{ t('todaysAppointments') }}</span><span class="stat-icon mint"><i class="pi pi-calendar"></i></span></div>
           <div class="stat-value">12 <span class="trend positive"><i class="pi pi-arrow-up-right"></i> 8.2%</span></div>
-          <div class="stat-foot"><span class="tiny-avatars"><i>SK</i><i>MY</i><i>+8</i></span> Geçen haftaya göre</div>
+          <div class="stat-foot"><span class="tiny-avatars"><i>SK</i><i>MY</i><i>+8</i></span> {{ t('comparedLastWeek') }}</div>
         </article>
         <article class="stat-card">
-          <div class="stat-top"><span>Toplam hasta</span><span class="stat-icon lavender"><i class="pi pi-users"></i></span></div>
+          <div class="stat-top"><span>{{ t('totalPatients') }}</span><span class="stat-icon lavender"><i class="pi pi-users"></i></span></div>
           <div class="stat-value">1.284 <span class="trend positive"><i class="pi pi-arrow-up-right"></i> 12.5%</span></div>
-          <div class="stat-foot"><span class="stat-foot-dot"></span> Bu ay <strong>+48 yeni hasta</strong></div>
+          <div class="stat-foot"><span class="stat-foot-dot"></span> {{ t('thisMonth') }} <strong>{{ t('newPatients') }}</strong></div>
         </article>
         <article class="stat-card">
-          <div class="stat-top"><span>Bekleyen mesajlar</span><span class="stat-icon peach"><i class="pi pi-comments"></i></span></div>
-          <div class="stat-value">6 <span class="trend neutral">Yanıt bekliyor</span></div>
-          <div class="stat-foot"><span class="stat-foot-dot peach-dot"></span> En eski mesaj <strong>24 dk önce</strong></div>
+          <div class="stat-top"><span>{{ t('pendingMessages') }}</span><span class="stat-icon peach"><i class="pi pi-comments"></i></span></div>
+          <div class="stat-value">6 <span class="trend neutral">{{ t('waitingReply') }}</span></div>
+          <div class="stat-foot"><span class="stat-foot-dot peach-dot"></span> {{ t('oldestMessage') }} <strong>{{ t('ago24') }}</strong></div>
         </article>
       </section>
 
@@ -115,6 +123,27 @@
               <p-tag value="Bekliyor" styleClass="status-tag status-pending"></p-tag>
               <button class="row-menu" type="button" aria-label="Randevu seçenekleri"><i class="pi pi-ellipsis-h"></i></button>
             </div>
+            <div class="appointment-row">
+              <div class="appointment-time"><strong>12:00</strong><span>30 dk</span></div>
+              <div class="timeline"><span class="timeline-dot"></span></div>
+              <div class="patient-info"><p-avatar label="ZA" shape="circle" styleClass="patient-avatar avatar-blue"></p-avatar><div><strong>Zeynep Aydın</strong><span>Sonuç değerlendirme <i class="pi pi-video"></i></span></div></div>
+              <p-tag value="Onaylandı" styleClass="status-tag status-confirmed"></p-tag>
+              <button class="row-menu" type="button" aria-label="Randevu seçenekleri"><i class="pi pi-ellipsis-h"></i></button>
+            </div>
+            <div class="appointment-row">
+              <div class="appointment-time"><strong>13:30</strong><span>45 dk</span></div>
+              <div class="timeline"><span class="timeline-dot"></span></div>
+              <div class="patient-info"><p-avatar label="BK" shape="circle" styleClass="patient-avatar avatar-peach"></p-avatar><div><strong>Burak Koç</strong><span>İlk görüşme <i class="pi pi-video"></i></span></div></div>
+              <p-tag value="Onaylandı" styleClass="status-tag status-confirmed"></p-tag>
+              <button class="row-menu" type="button" aria-label="Randevu seçenekleri"><i class="pi pi-ellipsis-h"></i></button>
+            </div>
+            <div class="appointment-row">
+              <div class="appointment-time"><strong>15:00</strong><span>30 dk</span></div>
+              <div class="timeline"><span class="timeline-dot"></span></div>
+              <div class="patient-info"><p-avatar label="NT" shape="circle" styleClass="patient-avatar avatar-lilac"></p-avatar><div><strong>Nehir Tan</strong><span>Takip görüşmesi <i class="pi pi-video"></i></span></div></div>
+              <p-tag value="Onaylandı" styleClass="status-tag status-confirmed"></p-tag>
+              <button class="row-menu" type="button" aria-label="Randevu seçenekleri"><i class="pi pi-ellipsis-h"></i></button>
+            </div>
           </div>
         </article>
 
@@ -140,7 +169,51 @@
         </aside>
       </section>
 
-      <footer class="dashboard-footer"><span><i class="pi pi-shield"></i> Sağlık verileriniz güvende ve şifreli.</span><span>© 2026 Medicare <i class="footer-divider"></i> Yardım merkezi <i class="pi pi-arrow-up-right"></i></span></footer>
+      <section class="lower-grid">
+        <article class="panel activity-panel">
+          <div class="panel-heading">
+            <div><h2>Hasta görüşmeleri</h2><p>Bu haftaki tamamlanan çevrimiçi görüşmeler</p></div>
+            <button class="period-button" type="button"><i class="pi pi-calendar"></i> Bu hafta <i class="pi pi-chevron-down"></i></button>
+          </div>
+          <div class="chart-summary"><strong>86 <span>görüşme</span></strong><span class="chart-change"><i class="pi pi-arrow-up-right"></i> %12,8 <small>geçen haftaya göre</small></span></div>
+          <div class="chart" role="img" aria-label="Pazartesi 10, Salı 14, Çarşamba 11, Perşembe 18, Cuma 15, Cumartesi 8 görüşme">
+            <div class="chart-grid"><span>20</span><span>15</span><span>10</span><span>5</span></div>
+            <div class="chart-bars">
+              <div class="chart-column"><span style="--bar-height: 50%"></span><small>Pzt</small></div>
+              <div class="chart-column selected"><span style="--bar-height: 70%"></span><small>Sal</small></div>
+              <div class="chart-column"><span style="--bar-height: 55%"></span><small>Çar</small></div>
+              <div class="chart-column"><span style="--bar-height: 90%"></span><small>Per</small></div>
+              <div class="chart-column"><span style="--bar-height: 75%"></span><small>Cum</small></div>
+              <div class="chart-column"><span style="--bar-height: 40%"></span><small>Cmt</small></div>
+              <div class="chart-column future"><span style="--bar-height: 16%"></span><small>Paz</small></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel patients-panel">
+          <div class="panel-heading">
+            <div><h2>Son hastalar</h2><p>Yakın zamanda kaydolan hastalar</p></div>
+            <button class="text-button" type="button">Hasta listesi <i class="pi pi-arrow-right"></i></button>
+          </div>
+          <div class="recent-patient">
+            <p-avatar label="EA" shape="circle" styleClass="patient-avatar avatar-green"></p-avatar>
+            <div><strong>Emre Aksoy</strong><span>Yeni hasta <i class="pi pi-circle-fill"></i> Bugün, 08:42</span></div>
+            <button type="button" aria-label="Emre Aksoy hasta detayları"><i class="pi pi-arrow-up-right"></i></button>
+          </div>
+          <div class="recent-patient">
+            <p-avatar label="MK" shape="circle" styleClass="patient-avatar avatar-lilac"></p-avatar>
+            <div><strong>Merve Kılıç</strong><span>Takip hastası <i class="pi pi-circle-fill"></i> Dün, 16:20</span></div>
+            <button type="button" aria-label="Merve Kılıç hasta detayları"><i class="pi pi-arrow-up-right"></i></button>
+          </div>
+          <div class="recent-patient">
+            <p-avatar label="OY" shape="circle" styleClass="patient-avatar avatar-peach"></p-avatar>
+            <div><strong>Ozan Yıldırım</strong><span>Yeni hasta <i class="pi pi-circle-fill"></i> Dün, 14:05</span></div>
+            <button type="button" aria-label="Ozan Yıldırım hasta detayları"><i class="pi pi-arrow-up-right"></i></button>
+          </div>
+        </article>
+      </section>
+
+      <footer class="dashboard-footer"><span><i class="pi pi-shield"></i> Sağlık verileriniz güvende ve şifreli.</span><span>© 2026 Ali Can Yücel. Her hakkı saklıdır.</span></footer>
     </div>
   </main>
 </div>
