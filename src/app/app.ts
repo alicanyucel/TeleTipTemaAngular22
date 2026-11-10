@@ -1,8 +1,5 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { AvatarModule } from 'primeng/avatar';
-import { ButtonModule } from 'primeng/button';
-import { TagModule } from 'primeng/tag';
 
 const translations = {
   tr: {
@@ -82,7 +79,7 @@ const translations = {
 } as const;
 
 @Component({
-  imports: [RouterOutlet, AvatarModule, ButtonModule, TagModule],
+  imports: [RouterOutlet],
   selector: 'app-root',
   templateUrl: './app.html',
 })

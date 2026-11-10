@@ -1,4 +1,3 @@
-@import "primeicons/primeicons.css";
 @import "./app/app.css";
 
 :root {
@@ -22,7 +21,15 @@ body {
 
 button, input { font: inherit; }
 
-.p-avatar.doctor-avatar, .p-avatar.top-avatar {
+.avatar {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.avatar.doctor-avatar, .avatar.top-avatar {
   width: 34px;
   height: 34px;
   background: #d8ece5;
@@ -31,26 +38,68 @@ button, input { font: inherit; }
   font-weight: 700;
 }
 
-.p-avatar.top-avatar { width: 31px; height: 31px; }
-.p-avatar.patient-avatar { width: 32px; height: 32px; font-size: 9px; font-weight: 650; }
-.p-avatar.avatar-blue { background: #e4effa; color: #527da8; }
-.p-avatar.avatar-peach { background: #f9e9df; color: #ad7656; }
-.p-avatar.avatar-lilac { background: #eeeafb; color: #7d6fb3; }
-.p-avatar.avatar-green { background: #e3f2e7; color: #54835f; }
-.p-avatar.next-avatar { width: 42px; height: 42px; border: 2px solid rgb(255 255 255 / 20%); background: #397363; color: white; font-size: 11px; font-weight: 650; }
+.avatar.top-avatar { width: 31px; height: 31px; }
+.avatar.patient-avatar { width: 32px; height: 32px; font-size: 9px; font-weight: 650; }
+.avatar.avatar-blue { background: #e4effa; color: #527da8; }
+.avatar.avatar-peach { background: #f9e9df; color: #ad7656; }
+.avatar.avatar-lilac { background: #eeeafb; color: #7d6fb3; }
+.avatar.avatar-green { background: #e3f2e7; color: #54835f; }
+.avatar.next-avatar { width: 42px; height: 42px; border: 2px solid rgb(255 255 255 / 20%); background: #397363; color: white; font-size: 11px; font-weight: 650; }
 
-.p-button.new-appointment, .p-button.join-button {
+.new-appointment, .join-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
   border: 0;
   border-radius: 8px;
   background: #16856f;
   box-shadow: none;
   color: #fff;
-  font-size: 10px;
+  font: inherit;
+  font-size: 12px;
   font-weight: 600;
+  cursor: pointer;
 }
 
-.p-button.new-appointment { padding: 10px 13px; }
-.p-button.new-appointment:hover, .p-button.join-button:hover { background: #116f5d; }
-.p-button.new-appointment .p-button-icon, .p-button.join-button .p-button-icon { font-size: 10px; }
-.p-button.join-button { width: 100%; justify-content: center; padding: 10px; background: #fff; color: #1b6555; }
-.p-button.join-button:hover { background: #eff8f4; color: #145a4b; }
+.new-appointment { padding: 10px 13px; }
+.new-appointment:hover, .join-button:hover { background: #116f5d; }
+.new-appointment i, .join-button i { font-size: 12px; }
+.join-button { width: 100%; padding: 10px; background: #fff; color: #1b6555; }
+.join-button:hover { background: #eff8f4; color: #145a4b; }
+
+i.pi {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: inherit;
+  font-style: normal;
+  line-height: 1;
+}
+.pi-heart-fill::before { content: "♥"; }
+.pi-th-large::before { content: "▦"; }
+.pi-calendar::before { content: "▣"; }
+.pi-users::before { content: "♟"; }
+.pi-comments::before { content: "▱"; }
+.pi-file::before { content: "▤"; }
+.pi-wallet::before { content: "▣"; }
+.pi-cog::before { content: "⚙"; }
+.pi-headphones::before { content: "♫"; }
+.pi-angle-right::before { content: "›"; }
+.pi-arrow-right::before { content: "→"; }
+.pi-arrow-up-right::before { content: "↗"; }
+.pi-bell::before { content: "♧"; }
+.pi-clock::before { content: "◷"; }
+.pi-video::before { content: "▷"; }
+.pi-circle-fill::before { content: "●"; }
+.pi-sparkles::before { content: "✦"; }
+.pi-ellipsis-h::before { content: "⋯"; }
+.pi-chevron-down::before { content: "⌄"; }
+.pi-globe::before { content: "◎"; }
+.pi-info-circle::before { content: "ⓘ"; }
+.pi-moon::before { content: "☾"; }
+.pi-plus::before { content: "+"; }
+.pi-search::before { content: "⌕"; }
+.pi-shield::before { content: "⬟"; }
+.pi-sun::before { content: "☼"; }
+.pi-times::before { content: "×"; }

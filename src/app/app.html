@@ -28,7 +28,7 @@
       <a href="#">{{ t('supportLink') }} <i class="pi pi-arrow-up-right"></i></a>
     </div>
     <button class="profile-button" type="button">
-      <p-avatar label="AD" shape="circle" styleClass="doctor-avatar"></p-avatar>
+      <span class="avatar doctor-avatar">AD</span>
       <span class="profile-copy"><strong>Dr. Ayşe Demir</strong><small>{{ t('specialty') }}</small></span>
       <i class="pi pi-ellipsis-h profile-menu"></i>
     </button>
@@ -55,7 +55,7 @@
         </button>
         <button class="auth-link" type="button" (click)="openAuth('login')">{{ t('login') }}</button>
         <button class="auth-register" type="button" (click)="openAuth('register')">{{ t('register') }}</button>
-        <p-avatar label="AD" shape="circle" styleClass="top-avatar"></p-avatar>
+        <span class="avatar top-avatar">AD</span>
       </div>
     </header>
 
@@ -66,7 +66,7 @@
           <h1>{{ t('greeting') }} <span>👋</span></h1>
           <p>{{ t('welcome') }}</p>
         </div>
-        <p-button [label]="t('newAppointment')" icon="pi pi-plus" styleClass="new-appointment"></p-button>
+        <button class="new-appointment" type="button"><i class="pi pi-plus"></i>{{ t('newAppointment') }}</button>
       </section>
 
       <section class="stats-grid" [attr.aria-label]="t('dailySummary')">
@@ -98,50 +98,50 @@
             <div class="appointment-row">
               <div class="appointment-time"><strong>09:00</strong><span>30 {{ t('minutes') }}</span></div>
               <div class="timeline"><span class="timeline-dot current"></span></div>
-              <div class="patient-info"><p-avatar label="SK" shape="circle" styleClass="patient-avatar avatar-blue"></p-avatar><div><strong>Selin Kaya</strong><span>{{ t('checkup') }} <i class="pi pi-video"></i></span></div></div>
-              <p-tag [value]="t('inCall')" styleClass="status-tag status-live"></p-tag>
+              <div class="patient-info"><span class="avatar patient-avatar avatar-blue">SK</span><div><strong>Selin Kaya</strong><span>{{ t('checkup') }} <i class="pi pi-video"></i></span></div></div>
+              <span class="status-tag status-live">{{ t('inCall') }}</span>
               <button class="row-menu" type="button" [attr.aria-label]="t('appointmentOptions')"><i class="pi pi-ellipsis-h"></i></button>
             </div>
             <div class="appointment-row">
               <div class="appointment-time"><strong>09:45</strong><span>45 {{ t('minutes') }}</span></div>
               <div class="timeline"><span class="timeline-dot"></span></div>
-              <div class="patient-info"><p-avatar label="MY" shape="circle" styleClass="patient-avatar avatar-peach"></p-avatar><div><strong>Mehmet Yılmaz</strong><span>{{ t('firstVisit') }} <i class="pi pi-video"></i></span></div></div>
-              <p-tag [value]="t('confirmed')" styleClass="status-tag status-confirmed"></p-tag>
+              <div class="patient-info"><span class="avatar patient-avatar avatar-peach">MY</span><div><strong>Mehmet Yılmaz</strong><span>{{ t('firstVisit') }} <i class="pi pi-video"></i></span></div></div>
+              <span class="status-tag status-confirmed">{{ t('confirmed') }}</span>
               <button class="row-menu" type="button" [attr.aria-label]="t('appointmentOptions')"><i class="pi pi-ellipsis-h"></i></button>
             </div>
             <div class="appointment-row">
               <div class="appointment-time"><strong>10:30</strong><span>30 {{ t('minutes') }}</span></div>
               <div class="timeline"><span class="timeline-dot"></span></div>
-              <div class="patient-info"><p-avatar label="ED" shape="circle" styleClass="patient-avatar avatar-lilac"></p-avatar><div><strong>Elif Demir</strong><span>{{ t('followup') }} <i class="pi pi-video"></i></span></div></div>
-              <p-tag [value]="t('confirmed')" styleClass="status-tag status-confirmed"></p-tag>
+              <div class="patient-info"><span class="avatar patient-avatar avatar-lilac">ED</span><div><strong>Elif Demir</strong><span>{{ t('followup') }} <i class="pi pi-video"></i></span></div></div>
+              <span class="status-tag status-confirmed">{{ t('confirmed') }}</span>
               <button class="row-menu" type="button" [attr.aria-label]="t('appointmentOptions')"><i class="pi pi-ellipsis-h"></i></button>
             </div>
             <div class="appointment-row">
               <div class="appointment-time"><strong>11:15</strong><span>30 {{ t('minutes') }}</span></div>
               <div class="timeline"><span class="timeline-dot"></span></div>
-              <div class="patient-info"><p-avatar label="CA" shape="circle" styleClass="patient-avatar avatar-green"></p-avatar><div><strong>Can Arslan</strong><span>{{ t('checkup') }} <i class="pi pi-video"></i></span></div></div>
-              <p-tag [value]="t('waiting')" styleClass="status-tag status-pending"></p-tag>
+              <div class="patient-info"><span class="avatar patient-avatar avatar-green">CA</span><div><strong>Can Arslan</strong><span>{{ t('checkup') }} <i class="pi pi-video"></i></span></div></div>
+              <span class="status-tag status-pending">{{ t('waiting') }}</span>
               <button class="row-menu" type="button" [attr.aria-label]="t('appointmentOptions')"><i class="pi pi-ellipsis-h"></i></button>
             </div>
             <div class="appointment-row">
               <div class="appointment-time"><strong>12:00</strong><span>30 {{ t('minutes') }}</span></div>
               <div class="timeline"><span class="timeline-dot"></span></div>
-              <div class="patient-info"><p-avatar label="ZA" shape="circle" styleClass="patient-avatar avatar-blue"></p-avatar><div><strong>Zeynep Aydın</strong><span>{{ t('resultsReview') }} <i class="pi pi-video"></i></span></div></div>
-              <p-tag [value]="t('confirmed')" styleClass="status-tag status-confirmed"></p-tag>
+              <div class="patient-info"><span class="avatar patient-avatar avatar-blue">ZA</span><div><strong>Zeynep Aydın</strong><span>{{ t('resultsReview') }} <i class="pi pi-video"></i></span></div></div>
+              <span class="status-tag status-confirmed">{{ t('confirmed') }}</span>
               <button class="row-menu" type="button" [attr.aria-label]="t('appointmentOptions')"><i class="pi pi-ellipsis-h"></i></button>
             </div>
             <div class="appointment-row">
               <div class="appointment-time"><strong>13:30</strong><span>45 {{ t('minutes') }}</span></div>
               <div class="timeline"><span class="timeline-dot"></span></div>
-              <div class="patient-info"><p-avatar label="BK" shape="circle" styleClass="patient-avatar avatar-peach"></p-avatar><div><strong>Burak Koç</strong><span>{{ t('firstVisit') }} <i class="pi pi-video"></i></span></div></div>
-              <p-tag [value]="t('confirmed')" styleClass="status-tag status-confirmed"></p-tag>
+              <div class="patient-info"><span class="avatar patient-avatar avatar-peach">BK</span><div><strong>Burak Koç</strong><span>{{ t('firstVisit') }} <i class="pi pi-video"></i></span></div></div>
+              <span class="status-tag status-confirmed">{{ t('confirmed') }}</span>
               <button class="row-menu" type="button" [attr.aria-label]="t('appointmentOptions')"><i class="pi pi-ellipsis-h"></i></button>
             </div>
             <div class="appointment-row">
               <div class="appointment-time"><strong>15:00</strong><span>30 {{ t('minutes') }}</span></div>
               <div class="timeline"><span class="timeline-dot"></span></div>
-              <div class="patient-info"><p-avatar label="NT" shape="circle" styleClass="patient-avatar avatar-lilac"></p-avatar><div><strong>Nehir Tan</strong><span>{{ t('followup') }} <i class="pi pi-video"></i></span></div></div>
-              <p-tag [value]="t('confirmed')" styleClass="status-tag status-confirmed"></p-tag>
+              <div class="patient-info"><span class="avatar patient-avatar avatar-lilac">NT</span><div><strong>Nehir Tan</strong><span>{{ t('followup') }} <i class="pi pi-video"></i></span></div></div>
+              <span class="status-tag status-confirmed">{{ t('confirmed') }}</span>
               <button class="row-menu" type="button" [attr.aria-label]="t('appointmentOptions')"><i class="pi pi-ellipsis-h"></i></button>
             </div>
           </div>
@@ -151,11 +151,11 @@
           <article class="next-card">
             <div class="next-card-top"><span><i class="pi pi-clock"></i> {{ t('nextAppointment') }}</span><span class="live-pill"><i></i> {{ t('minutes12') }}</span></div>
             <div class="next-patient">
-              <p-avatar label="SK" shape="circle" styleClass="next-avatar"></p-avatar>
+              <span class="avatar next-avatar">SK</span>
               <div><h3>Selin Kaya</h3><span>{{ t('checkup') }}</span></div>
             </div>
             <div class="next-details"><span><i class="pi pi-video"></i> {{ t('videoCall') }}</span><span><i class="pi pi-clock"></i> 09:00 – 09:30</span></div>
-            <p-button [label]="t('joinCall')" icon="pi pi-video" styleClass="join-button"></p-button>
+            <button class="join-button" type="button"><i class="pi pi-video"></i>{{ t('joinCall') }}</button>
             <button class="detail-button" type="button">{{ t('patientDetails') }} <i class="pi pi-arrow-up-right"></i></button>
           </article>
 
@@ -196,17 +196,17 @@
             <button class="text-button" type="button">{{ t('patientList') }} <i class="pi pi-arrow-right"></i></button>
           </div>
           <div class="recent-patient">
-            <p-avatar label="EA" shape="circle" styleClass="patient-avatar avatar-green"></p-avatar>
+            <span class="avatar patient-avatar avatar-green">EA</span>
             <div><strong>Emre Aksoy</strong><span>{{ t('newPatient') }} <i class="pi pi-circle-fill"></i> {{ t('todayAt') }}</span></div>
             <button type="button" [attr.aria-label]="'Emre Aksoy - ' + t('patientDetails')"><i class="pi pi-arrow-up-right"></i></button>
           </div>
           <div class="recent-patient">
-            <p-avatar label="MK" shape="circle" styleClass="patient-avatar avatar-lilac"></p-avatar>
+            <span class="avatar patient-avatar avatar-lilac">MK</span>
             <div><strong>Merve Kılıç</strong><span>{{ t('returningPatient') }} <i class="pi pi-circle-fill"></i> {{ t('yesterdayAt16') }}</span></div>
             <button type="button" [attr.aria-label]="'Merve Kılıç - ' + t('patientDetails')"><i class="pi pi-arrow-up-right"></i></button>
           </div>
           <div class="recent-patient">
-            <p-avatar label="OY" shape="circle" styleClass="patient-avatar avatar-peach"></p-avatar>
+            <span class="avatar patient-avatar avatar-peach">OY</span>
             <div><strong>Ozan Yıldırım</strong><span>{{ t('newPatient') }} <i class="pi pi-circle-fill"></i> {{ t('yesterdayAt14') }}</span></div>
             <button type="button" [attr.aria-label]="'Ozan Yıldırım - ' + t('patientDetails')"><i class="pi pi-arrow-up-right"></i></button>
           </div>

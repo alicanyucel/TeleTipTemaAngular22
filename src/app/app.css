@@ -529,7 +529,7 @@ body:has(.app-shell.dark-theme) { background: #111a18; }
   .topbar { height: 60px; padding: 0 17px; }
   .mobile-brand { display: flex; font-size: 16px; }
   .mobile-brand .brand-mark { width: 29px; height: 29px; border-radius: 9px; font-size: 13px; }
-  .breadcrumb, .search-box, .topbar-actions > .top-avatar { display: none; }
+  .breadcrumb, .search-box, .topbar-actions > .avatar.top-avatar { display: none; }
   .topbar-actions { gap: 0; }
   .topbar-actions { gap: 4px; }
   .notification-button { display: none; }
